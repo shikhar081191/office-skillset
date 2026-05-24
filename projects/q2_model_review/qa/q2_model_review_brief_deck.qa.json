@@ -1,0 +1,278 @@
+{
+  "path": "projects\\q2_model_review\\outputs\\q2_model_review_brief_deck.pptx",
+  "slide_count": 25,
+  "final": true,
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 2 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 2
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 2 has ~27 words with no visual - canvas will appear empty.",
+      "slide": 2
+    },
+    {
+      "level": "warning",
+      "check": "bullet_length",
+      "message": "TextBox 3 averages 16 words per bullet - aim for <=15 words each.",
+      "slide": 3
+    },
+    {
+      "level": "warning",
+      "check": "slide_text_volume",
+      "message": "Slide 3 has ~89 words - aim for <=80 words total per content slide.",
+      "slide": 3
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 3 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 3
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 3 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 3
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 4 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 4
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 4 has ~32 words with no visual - canvas will appear empty.",
+      "slide": 4
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 5 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 5
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 5 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 5
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 7 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 7
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 7 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 7
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 8 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 8
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 8 has ~18 words with no visual - canvas will appear empty.",
+      "slide": 8
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 9 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 9
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 9 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 9
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 10 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 10
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 10 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 10
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 11 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 11
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 11 has ~21 words with no visual - canvas will appear empty.",
+      "slide": 11
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 12 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 12
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 12 has ~18 words with no visual - canvas will appear empty.",
+      "slide": 12
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 13 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 13
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 13 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 13
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 14 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 14
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 14 has ~30 words with no visual - canvas will appear empty.",
+      "slide": 14
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 15 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 15
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 15 has ~21 words with no visual - canvas will appear empty.",
+      "slide": 15
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 16 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 16
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 16 has ~21 words with no visual - canvas will appear empty.",
+      "slide": 16
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 17 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 17
+    },
+    {
+      "level": "warning",
+      "check": "space_utilisation",
+      "message": "Slide 17 has ~22 words with no visual - canvas will appear empty.",
+      "slide": 17
+    },
+    {
+      "level": "warning",
+      "check": "bullet_length",
+      "message": "TextBox 3 averages 16 words per bullet - aim for <=15 words each.",
+      "slide": 18
+    },
+    {
+      "level": "warning",
+      "check": "slide_text_volume",
+      "message": "Slide 18 has ~88 words - aim for <=80 words total per content slide.",
+      "slide": 18
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 18 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 18
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 18 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 18
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 19 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 19
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 19 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 19
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 20 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 20
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 20 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 20
+    },
+    {
+      "level": "warning",
+      "check": "visual_density",
+      "message": "Slide 21 is text-only - add a table, chart image, or visual pattern.",
+      "slide": 21
+    },
+    {
+      "level": "warning",
+      "check": "text_only_font",
+      "message": "Slide 21 is text-only with small type (16pt min) - increase body font to >=18pt.",
+      "slide": 21
+    }
+  ],
+  "checks": {
+    "bounds": 175,
+    "placeholder_text": 109,
+    "font_size": 108,
+    "text_crowding": 108,
+    "solid_contrast": 108,
+    "image_resolution": 0,
+    "table_density": 1,
+    "bullet_count": 0,
+    "bullet_length": 2,
+    "slide_text_volume": 25,
+    "visual_density": 19,
+    "text_only_font": 10,
+    "space_utilisation": 23,
+    "shape_overlap": 0,
+    "layout_symmetry": 0
+  }
+}

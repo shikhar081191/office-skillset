@@ -1,0 +1,25 @@
+{
+  "path": "projects\\q2_model_review\\outputs\\q2_model_review_refined.pptx",
+  "slide_count": 13,
+  "final": true,
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "checks": {
+    "bounds": 204,
+    "placeholder_text": 126,
+    "font_size": 118,
+    "text_crowding": 124,
+    "solid_contrast": 124,
+    "image_resolution": 0,
+    "table_density": 2,
+    "bullet_count": 0,
+    "bullet_length": 0,
+    "slide_text_volume": 13,
+    "visual_density": 0,
+    "text_only_font": 0,
+    "space_utilisation": 11,
+    "shape_overlap": 0,
+    "layout_symmetry": 0
+  }
+}

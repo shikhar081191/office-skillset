@@ -1,0 +1,584 @@
+{
+  "source_path": "projects\\q2_model_review\\inputs\\q2_model_review_brief.docx",
+  "title": "Executive Summary",
+  "sections": [
+    {
+      "heading": "Source notes",
+      "level": 0,
+      "paragraphs": [
+        "Q2 2025 Credit Model Review \u2014 Decision Briefing",
+        "For: Credit Risk Committee  |  24 May 2025  |  Prepared by: Credit Risk Modelling Team"
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Q2 2025 Credit Model Review \u2014 Decision Briefing"
+        },
+        {
+          "type": "paragraph",
+          "text": "For: Credit Risk Committee  |  24 May 2025  |  Prepared by: Credit Risk Modelling Team"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Executive Summary",
+      "level": 1,
+      "paragraphs": [
+        "The Credit Risk Modelling team recommends approval of Credit Model v3 for full production deployment in Q3 2025. The new model delivers an 18 percentage point improvement in PMSE on the holdout validation set, passes all regulatory stress tests, and has received independent model validation sign-off from Accenture Risk Advisory on 14 May 2025. A 90-day parallel run against live book positions confirms no material change to capital requirements. The primary residual risk is vintage-level drift in the short-duration cohort, mitigated by a monthly monitoring protocol agreed with the model risk team.",
+        "Management recommendation: Approve Credit Model v3. Target regulatory submission 28 May and go-live August 2025."
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Credit Risk Modelling team recommends approval of Credit Model v3 for full production deployment in Q3 2025. The new model delivers an 18 percentage point improvement in PMSE on the holdout validation set, passes all regulatory stress tests, and has received independent model validation sign-off from Accenture Risk Advisory on 14 May 2025. A 90-day parallel run against live book positions confirms no material change to capital requirements. The primary residual risk is vintage-level drift in the short-duration cohort, mitigated by a monthly monitoring protocol agreed with the model risk team."
+        },
+        {
+          "type": "paragraph",
+          "text": "Management recommendation: Approve Credit Model v3. Target regulatory submission 28 May and go-live August 2025."
+        }
+      ],
+      "distillation_needed": true
+    },
+    {
+      "heading": "Agenda",
+      "level": 1,
+      "paragraphs": [
+        "Today's committee meeting covers five areas.",
+        "1. Executive Summary \u2014 Recommendation and key findings",
+        "2. Model Performance \u2014 Quantitative results and holdout validation",
+        "3. Stress Testing and Assumptions \u2014 Macro scenario parameters",
+        "4. Implementation Plan \u2014 Go-live timeline and resource requirements",
+        "5. Appendix \u2014 Methodology and supporting data"
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Today's committee meeting covers five areas."
+        },
+        {
+          "type": "paragraph",
+          "text": "1. Executive Summary \u2014 Recommendation and key findings"
+        },
+        {
+          "type": "paragraph",
+          "text": "2. Model Performance \u2014 Quantitative results and holdout validation"
+        },
+        {
+          "type": "paragraph",
+          "text": "3. Stress Testing and Assumptions \u2014 Macro scenario parameters"
+        },
+        {
+          "type": "paragraph",
+          "text": "4. Implementation Plan \u2014 Go-live timeline and resource requirements"
+        },
+        {
+          "type": "paragraph",
+          "text": "5. Appendix \u2014 Methodology and supporting data"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Q2 Performance Snapshot",
+      "level": 1,
+      "paragraphs": [
+        "Six key metrics summarise Q2 2025 model and portfolio performance vs prior quarter.",
+        "PMSE (holdout, Model v3): 0.046 \u2014 down from 0.060 baseline, improvement of 23%",
+        "Sharpe Ratio: 1.18 \u2014 up 0.08 vs Q1 2025",
+        "AUM covered: $4.7 billion",
+        "Model coverage: 98.3% of live positions",
+        "Information Ratio: 0.71",
+        "Stress test pass rate: 100% across all macro scenarios"
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Six key metrics summarise Q2 2025 model and portfolio performance vs prior quarter."
+        },
+        {
+          "type": "paragraph",
+          "text": "PMSE (holdout, Model v3): 0.046 \u2014 down from 0.060 baseline, improvement of 23%"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sharpe Ratio: 1.18 \u2014 up 0.08 vs Q1 2025"
+        },
+        {
+          "type": "paragraph",
+          "text": "AUM covered: $4.7 billion"
+        },
+        {
+          "type": "paragraph",
+          "text": "Model coverage: 98.3% of live positions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Information Ratio: 0.71"
+        },
+        {
+          "type": "paragraph",
+          "text": "Stress test pass rate: 100% across all macro scenarios"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Programme Status",
+      "level": 1,
+      "paragraphs": [
+        "Six workstreams are tracked on the path to production deployment.",
+        "Model Development: Complete. Credit Model v3 signed off by internal validation on 28 April 2025. All factor specifications finalised.",
+        "Independent Validation: Complete. External validator Accenture confirmed sign-off 14 May 2025 following four-week review.",
+        "Regulatory Submission: In progress. MRM submission package drafted; awaiting legal review sign-off expected 28 May.",
+        "Technology Integration: At risk. Two-week delay caused by API versioning incompatibility with core banking system. Vendor patch in testing.",
+        "Parallel Run: Complete. 90-day parallel run ended 10 May. All cohort results within agreed tolerance bands.",
+        "Documentation: In progress. Model card and user guide 80% complete. Target sign-off 7 June ahead of go-live."
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Six workstreams are tracked on the path to production deployment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Model Development: Complete. Credit Model v3 signed off by internal validation on 28 April 2025. All factor specifications finalised."
+        },
+        {
+          "type": "paragraph",
+          "text": "Independent Validation: Complete. External validator Accenture confirmed sign-off 14 May 2025 following four-week review."
+        },
+        {
+          "type": "paragraph",
+          "text": "Regulatory Submission: In progress. MRM submission package drafted; awaiting legal review sign-off expected 28 May."
+        },
+        {
+          "type": "paragraph",
+          "text": "Technology Integration: At risk. Two-week delay caused by API versioning incompatibility with core banking system. Vendor patch in testing."
+        },
+        {
+          "type": "paragraph",
+          "text": "Parallel Run: Complete. 90-day parallel run ended 10 May. All cohort results within agreed tolerance bands."
+        },
+        {
+          "type": "paragraph",
+          "text": "Documentation: In progress. Model card and user guide 80% complete. Target sign-off 7 June ahead of go-live."
+        }
+      ],
+      "distillation_needed": true
+    },
+    {
+      "heading": "Model Performance Comparison",
+      "level": 1,
+      "paragraphs": [
+        "PMSE by model version and maturity cohort on the out-of-time holdout set (January\u2013March 2025)."
+      ],
+      "table_ids": [
+        "table_1"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "PMSE by model version and maturity cohort on the out-of-time holdout set (January\u2013March 2025)."
+        },
+        {
+          "type": "table",
+          "table_id": "table_1"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Implementation Plan",
+      "level": 1,
+      "paragraphs": [
+        "The implementation follows a six-milestone schedule from model completion to full production go-live.",
+        "February 2025: Model development complete \u2014 all factor specifications finalised and version-controlled.",
+        "March 2025: Internal validation sign-off \u2014 passed all internal Model Risk Management criteria.",
+        "May 2025: External validation sign-off \u2014 Accenture confirmed; current milestone reached.",
+        "June 2025: Regulatory submission \u2014 MRM package submitted to PRA under SS1/23 requirements.",
+        "July 2025: Technology integration \u2014 API migration, UAT and user acceptance sign-off complete.",
+        "August 2025: Production go-live \u2014 Model v3 active across all credit portfolios."
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The implementation follows a six-milestone schedule from model completion to full production go-live."
+        },
+        {
+          "type": "paragraph",
+          "text": "February 2025: Model development complete \u2014 all factor specifications finalised and version-controlled."
+        },
+        {
+          "type": "paragraph",
+          "text": "March 2025: Internal validation sign-off \u2014 passed all internal Model Risk Management criteria."
+        },
+        {
+          "type": "paragraph",
+          "text": "May 2025: External validation sign-off \u2014 Accenture confirmed; current milestone reached."
+        },
+        {
+          "type": "paragraph",
+          "text": "June 2025: Regulatory submission \u2014 MRM package submitted to PRA under SS1/23 requirements."
+        },
+        {
+          "type": "paragraph",
+          "text": "July 2025: Technology integration \u2014 API migration, UAT and user acceptance sign-off complete."
+        },
+        {
+          "type": "paragraph",
+          "text": "August 2025: Production go-live \u2014 Model v3 active across all credit portfolios."
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Stress Test Assumptions",
+      "level": 1,
+      "paragraphs": [
+        "Model validated against a 1-in-20 adverse macro scenario. Assumptions represent a coherent stress, not individual extremes."
+      ],
+      "table_ids": [
+        "table_2"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Model validated against a 1-in-20 adverse macro scenario. Assumptions represent a coherent stress, not individual extremes."
+        },
+        {
+          "type": "table",
+          "table_id": "table_2"
+        }
+      ],
+      "distillation_needed": true
+    },
+    {
+      "heading": "Factor Return Attribution",
+      "level": 1,
+      "paragraphs": [
+        "Q2 2025 return attribution by risk factor, comparing Model v2 and Model v3 contributions in basis points."
+      ],
+      "table_ids": [
+        "table_3"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Q2 2025 return attribution by risk factor, comparing Model v2 and Model v3 contributions in basis points."
+        },
+        {
+          "type": "table",
+          "table_id": "table_3"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Historical PMSE Trend",
+      "level": 1,
+      "paragraphs": [
+        "Rolling quarterly PMSE for Model v2 and Model v3 over the 2023\u20132025 parallel run period. Lower is better."
+      ],
+      "table_ids": [
+        "table_4"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rolling quarterly PMSE for Model v2 and Model v3 over the 2023\u20132025 parallel run period. Lower is better."
+        },
+        {
+          "type": "table",
+          "table_id": "table_4"
+        }
+      ],
+      "distillation_needed": false
+    },
+    {
+      "heading": "Core Finding",
+      "level": 1,
+      "paragraphs": [
+        "Bills and short-duration instruments drive almost all of the PMSE improvement. The model's treatment of prepayment risk and vintage effects in the short-duration cohort explains 72% of the total PMSE gain \u2014 equivalent to 14 percentage points of the 18pp total improvement. The remaining 4pp comes from improved credit spread factor specification in the medium and long maturity cohorts. External validation using an independent data panel (January 2020 \u2013 December 2024) confirms the finding is robust to different time periods.",
+        "Short cohort PMSE reduced by 35%: from 0.048 to 0.031",
+        "Vintage effect accounts for 72% of the total PMSE gain across all cohorts",
+        "External validation on independent panel confirms finding holds out-of-sample",
+        "Stress test capital impact: immaterial \u2014 within tolerance agreed with PRA"
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bills and short-duration instruments drive almost all of the PMSE improvement. The model's treatment of prepayment risk and vintage effects in the short-duration cohort explains 72% of the total PMSE gain \u2014 equivalent to 14 percentage points of the 18pp total improvement. The remaining 4pp comes from improved credit spread factor specification in the medium and long maturity cohorts. External validation using an independent data panel (January 2020 \u2013 December 2024) confirms the finding is robust to different time periods."
+        },
+        {
+          "type": "paragraph",
+          "text": "Short cohort PMSE reduced by 35%: from 0.048 to 0.031"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vintage effect accounts for 72% of the total PMSE gain across all cohorts"
+        },
+        {
+          "type": "paragraph",
+          "text": "External validation on independent panel confirms finding holds out-of-sample"
+        },
+        {
+          "type": "paragraph",
+          "text": "Stress test capital impact: immaterial \u2014 within tolerance agreed with PRA"
+        }
+      ],
+      "distillation_needed": true
+    },
+    {
+      "heading": "Implementation Risk Prioritisation",
+      "level": 1,
+      "paragraphs": [
+        "Four risks require committee attention, assessed by potential impact and resolution urgency.",
+        "API versioning delay: High impact, High urgency. Two-week delay on technology integration. Extended parallel run covers any gap.",
+        "Vintage drift monitoring: High impact, Low urgency. Post-launch monthly monitoring protocol agreed. Recalibration triggers if 5% threshold breached.",
+        "User training coverage: Medium impact, Medium urgency. Three workshops scheduled June. All users trained before go-live.",
+        "Documentation completeness: Low impact, Low urgency. Model card 80% done. No blocker to go-live; can complete post-launch."
+      ],
+      "table_ids": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Four risks require committee attention, assessed by potential impact and resolution urgency."
+        },
+        {
+          "type": "paragraph",
+          "text": "API versioning delay: High impact, High urgency. Two-week delay on technology integration. Extended parallel run covers any gap."
+        },
+        {
+          "type": "paragraph",
+          "text": "Vintage drift monitoring: High impact, Low urgency. Post-launch monthly monitoring protocol agreed. Recalibration triggers if 5% threshold breached."
+        },
+        {
+          "type": "paragraph",
+          "text": "User training coverage: Medium impact, Medium urgency. Three workshops scheduled June. All users trained before go-live."
+        },
+        {
+          "type": "paragraph",
+          "text": "Documentation completeness: Low impact, Low urgency. Model card 80% done. No blocker to go-live; can complete post-launch."
+        }
+      ],
+      "distillation_needed": true
+    }
+  ],
+  "tables": [
+    {
+      "id": "table_1",
+      "section_heading": "Model Performance Comparison",
+      "headers": [
+        "Cohort",
+        "Model v1",
+        "Model v2",
+        "Model v3"
+      ],
+      "rows": [
+        [
+          "Short (<1Y)",
+          "0.078",
+          "0.048",
+          "0.031"
+        ],
+        [
+          "Medium (1-5Y)",
+          "0.085",
+          "0.061",
+          "0.049"
+        ],
+        [
+          "Long (>5Y)",
+          "0.091",
+          "0.072",
+          "0.058"
+        ],
+        [
+          "All Cohorts",
+          "0.084",
+          "0.060",
+          "0.046"
+        ]
+      ],
+      "row_count": 4,
+      "column_count": 4,
+      "numeric_columns": [
+        "Model v1",
+        "Model v2",
+        "Model v3"
+      ]
+    },
+    {
+      "id": "table_2",
+      "section_heading": "Stress Test Assumptions",
+      "headers": [
+        "Assumption",
+        "Value",
+        "Source",
+        "Sensitivity"
+      ],
+      "rows": [
+        [
+          "GDP growth (2025)",
+          "-1.5%",
+          "IMF WEO",
+          "High"
+        ],
+        [
+          "Rate path (10Y UST)",
+          "+75bps",
+          "Fed dots",
+          "High"
+        ],
+        [
+          "IG spread widening",
+          "+120bps",
+          "Internal",
+          "Medium"
+        ],
+        [
+          "Equity drawdown",
+          "-20%",
+          "Internal",
+          "High"
+        ],
+        [
+          "FX (EURUSD)",
+          "0.95",
+          "Bloomberg",
+          "Low"
+        ],
+        [
+          "Recovery rate",
+          "40%",
+          "S&P LossStats",
+          "Medium"
+        ]
+      ],
+      "row_count": 6,
+      "column_count": 4,
+      "numeric_columns": [
+        "Value"
+      ]
+    },
+    {
+      "id": "table_3",
+      "section_heading": "Factor Return Attribution",
+      "headers": [
+        "Factor",
+        "Model v2 (bps)",
+        "Model v3 (bps)"
+      ],
+      "rows": [
+        [
+          "Equity Beta",
+          "28",
+          "32"
+        ],
+        [
+          "Duration",
+          "-12",
+          "-8"
+        ],
+        [
+          "Credit",
+          "15",
+          "18"
+        ],
+        [
+          "FX Carry",
+          "6",
+          "6"
+        ],
+        [
+          "Residual",
+          "-4",
+          "-2"
+        ]
+      ],
+      "row_count": 5,
+      "column_count": 3,
+      "numeric_columns": [
+        "Model v2 (bps)",
+        "Model v3 (bps)"
+      ]
+    },
+    {
+      "id": "table_4",
+      "section_heading": "Historical PMSE Trend",
+      "headers": [
+        "Quarter",
+        "Model v2",
+        "Model v3"
+      ],
+      "rows": [
+        [
+          "Q3 23",
+          "0.065",
+          "0.058"
+        ],
+        [
+          "Q4 23",
+          "0.063",
+          "0.055"
+        ],
+        [
+          "Q1 24",
+          "0.061",
+          "0.052"
+        ],
+        [
+          "Q2 24",
+          "0.060",
+          "0.049"
+        ],
+        [
+          "Q3 24",
+          "0.062",
+          "0.048"
+        ],
+        [
+          "Q4 24",
+          "0.061",
+          "0.047"
+        ],
+        [
+          "Q1 25",
+          "0.060",
+          "0.047"
+        ],
+        [
+          "Q2 25",
+          "0.060",
+          "0.046"
+        ]
+      ],
+      "row_count": 8,
+      "column_count": 3,
+      "numeric_columns": [
+        "Model v2",
+        "Model v3"
+      ]
+    }
+  ],
+  "supplemental_text": {
+    "headers": [],
+    "footers": [],
+    "text_boxes": []
+  },
+  "suggested_visual_inputs": [
+    "table_1: comparison table, heat map or diverging bars using Model v1, Model v2, Model v3",
+    "table_2: bar chart or ranked result view using Value",
+    "table_3: comparison table, heat map or diverging bars using Model v2 (bps), Model v3 (bps)",
+    "table_4: comparison table, heat map or diverging bars using Model v2, Model v3"
+  ],
+  "sections_needing_distillation": 5
+}

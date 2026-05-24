@@ -1,0 +1,22 @@
+{
+  "path": "projects\\q2_model_review\\outputs\\q2_model_review_refined.pptx",
+  "status": "skipped",
+  "runtime_status": {
+    "slides.render_slides": {
+      "pdf2image": false,
+      "soffice": false,
+      "poppler": false
+    },
+    "slides.slides_test": {
+      "pdf2image": false,
+      "soffice": false,
+      "poppler": false
+    }
+  },
+  "missing_requirements": [
+    "pdf2image",
+    "poppler",
+    "soffice"
+  ],
+  "message": "Rendered visual QA was not run because the optional runtime is unavailable: pdf2image, poppler, soffice. Structural PPTX QA remains mandatory and has run separately."
+}

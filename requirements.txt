@@ -1,0 +1,11 @@
+# office_tools_mini — Python-only dependencies
+# Install with: pip install -r requirements.txt
+# No npm, no Node.js, no LibreOffice needed for core functionality
+
+python-docx>=1.1.0       # Create and edit .docx files
+python-pptx>=0.6.23      # Create and edit .pptx files
+openpyxl>=3.1.0          # Create and edit .xlsx files
+pandas>=2.0.0            # Data analysis and Excel I/O
+Pillow>=10.0.0           # Image processing
+defusedxml>=0.7.1        # Safe XML parsing
+lxml>=4.9.0              # Advanced retained DOCX OOXML utilities

@@ -1,0 +1,2 @@
+Audience: credit risk committee
+Decision sought: approve Credit Model v3 for production

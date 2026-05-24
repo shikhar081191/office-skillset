@@ -1,0 +1,17 @@
+# Local Python/runtime files
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor/assistant machine-local settings
+.claude/
+
+# Technical demo output; real retained examples live under projects/
+output/
+demo_output.*
+
+# Generated workflow verification copies
+projects/q2_model_review_dry_run/
+projects/q2_publish_verification/
+projects/q2_model_review_copilot_test/

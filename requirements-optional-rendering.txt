@@ -1,0 +1,6 @@
+# Optional richer visual-QA integrations from artifact_python_utilities_chatgpt/.
+# These Python packages are not required for core generation or structural QA.
+# Slide/DOCX rendering also needs LibreOffice (`soffice`) and Poppler binaries.
+
+pdf2image>=1.17.0
+numpy>=1.26.0

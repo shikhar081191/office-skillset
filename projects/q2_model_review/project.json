@@ -1,0 +1,196 @@
+{
+  "name": "Q2 Model Review",
+  "slug": "q2_model_review",
+  "created_utc": "2026-05-24T17:49:11.500401+00:00",
+  "folders": {
+    "inputs": "inputs",
+    "assets": "assets",
+    "working": "working",
+    "outputs": "outputs",
+    "qa": "qa"
+  },
+  "workflow_runs": [
+    {
+      "workflow": "docx_to_pptx",
+      "run_utc": "2026-05-24T17:50:34.950156+00:00",
+      "inputs": [
+        "inputs\\q2_model_review_brief.docx"
+      ],
+      "outputs": [
+        "outputs\\q2_model_review_brief_deck.pptx"
+      ],
+      "working_files": [
+        "working\\user_instructions.txt",
+        "working\\decision_log.md",
+        "working\\q2_model_review_brief_source.json",
+        "working\\q2_model_review_brief_source.md"
+      ],
+      "qa_reports": [
+        "qa\\q2_model_review_brief_deck.qa.json"
+      ],
+      "patterns": [
+        "title_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "heat_map_slide",
+        "results_slide",
+        "heat_map_slide",
+        "heat_map_slide"
+      ],
+      "palette": "blackrock",
+      "settings": {
+        "input_type": "docx",
+        "output_type": "pptx",
+        "instructions_supplied": false,
+        "visual_qa": "structural"
+      }
+    },
+    {
+      "workflow": "docx_to_pptx",
+      "run_utc": "2026-05-24T19:35:28.577160+00:00",
+      "inputs": [
+        "inputs\\q2_model_review_brief.docx"
+      ],
+      "outputs": [
+        "outputs\\q2_model_review_brief_deck.pptx"
+      ],
+      "working_files": [
+        "working\\user_instructions.txt",
+        "working\\decision_log.md",
+        "working\\q2_model_review_brief_source.json",
+        "working\\q2_model_review_brief_source.md"
+      ],
+      "qa_reports": [
+        "qa\\q2_model_review_brief_deck.qa.json"
+      ],
+      "patterns": [
+        "title_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "heat_map_slide",
+        "results_slide",
+        "heat_map_slide",
+        "heat_map_slide"
+      ],
+      "palette": "blackrock",
+      "settings": {
+        "input_type": "docx",
+        "output_type": "pptx",
+        "instructions_supplied": false,
+        "visual_qa": "structural"
+      }
+    },
+    {
+      "workflow": "docx_to_pptx",
+      "run_utc": "2026-05-24T19:37:13.909722+00:00",
+      "inputs": [
+        "inputs\\q2_model_review_brief.docx"
+      ],
+      "outputs": [
+        "outputs\\q2_model_review_brief_deck.pptx"
+      ],
+      "working_files": [
+        "working\\user_instructions.txt",
+        "working\\decision_log.md",
+        "working\\q2_model_review_brief_source.json",
+        "working\\q2_model_review_brief_source.md"
+      ],
+      "qa_reports": [
+        "qa\\q2_model_review_brief_deck.qa.json"
+      ],
+      "patterns": [
+        "title_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "content_slide",
+        "heat_map_slide",
+        "results_slide",
+        "heat_map_slide",
+        "heat_map_slide"
+      ],
+      "palette": "blackrock",
+      "settings": {
+        "input_type": "docx",
+        "output_type": "pptx",
+        "instructions_supplied": false,
+        "visual_qa": "structural"
+      }
+    },
+    {
+      "workflow": "manual_refinement",
+      "run_utc": "2026-05-24T19:37:14.810076+00:00",
+      "inputs": [],
+      "outputs": [
+        "outputs\\q2_model_review_refined.pptx"
+      ],
+      "working_files": [
+        "working\\slide_plan.md"
+      ],
+      "qa_reports": [
+        "qa\\q2_model_review_refined.qa.json",
+        "qa\\q2_model_review_refined.rendered_qa.json"
+      ],
+      "patterns": [
+        "title_slide",
+        "agenda_slide",
+        "recommendation_slide",
+        "kpi_dashboard_slide",
+        "status_slide",
+        "results_slide",
+        "bar_chart_slide",
+        "line_chart_slide",
+        "assumption_table_slide",
+        "timeline_slide",
+        "assertion_evidence_slide",
+        "two_by_two_slide",
+        "section_divider"
+      ],
+      "notes": "Refined deck: all 12 content patterns, key messages, visual improvements applied."
+    }
+  ]
+}
