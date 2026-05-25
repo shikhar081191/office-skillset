@@ -250,7 +250,24 @@ revision.
 
 ## What Happens Behind The Scenes
 
-For a Word-to-PowerPoint request, the workflow is:
+There are two paths depending on how you supply your material.
+
+### Brief path (notes pasted in chat, or filled BRIEF_TEMPLATE.md)
+
+```text
+your notes or filled brief
+  -> AI reads AI_INSTRUCTIONS.md and STORY_TEMPLATES.md
+  -> AI selects story template and writes slide plan
+  -> AI builds refined visual presentation
+  -> QA checks layout, contrast, density
+  -> fixes applied if needed
+  -> final deck saved to projects/<project>/outputs/
+```
+
+No Word file is extracted. No internal scaffold is created. The AI goes
+directly from brief to plan to deck.
+
+### Word-source path (you supply a .docx file)
 
 ```text
 +------------------------------------------------------+
@@ -303,18 +320,6 @@ For a Word-to-PowerPoint request, the workflow is:
                                     +----------------------------------+
 ```
 
-In plain language:
-
-```text
-your material
-  -> captured source content
-  -> internal working draft
-  -> AI-designed slide plan
-  -> polished deck
-  -> quality checks and fixes
-  -> final PowerPoint
-```
-
 The internal scaffold is not your finished presentation. It exists so the AI
 can preserve and understand the source before turning it into a concise visual
 story.
@@ -325,23 +330,25 @@ For a presentation project:
 
 ```text
 projects/<project_name>/
-  inputs/    Your source Word/Excel/data files
-  working/   Extracted context, slide plan and decision log
-  assets/    Charts or images used in the deck
-  scripts/   Build script created for the project, when needed
+  inputs/    Your source Word/Excel/data files (Word path only)
+  working/   Slide plan, decision log, and extracted source content
+  assets/    Charts or images used in the deck (when applicable)
+  scripts/   Build script created for the project
   outputs/   The final refined presentation
   qa/        Quality reports
 ```
 
 Most useful files:
 
-| File | Why it matters |
-|---|---|
-| `outputs/<name>_refined.pptx` | Final deck to review or share |
-| `working/slide_plan.md` | Which layouts the AI chose and why |
-| `working/decision_log.md` | How the story was structured |
-| `qa/<name>_refined.qa.json` | Structural QA results |
-| `qa/<name>_refined.rendered_qa.json` | Whether rendered visual review ran or why it could not |
+| File | Why it matters | Path |
+|---|---|---|
+| `outputs/<name>_refined.pptx` | Final deck — Word path naming convention | Word source |
+| `outputs/<project_name>.pptx` | Final deck — brief path naming convention | Brief/notes |
+| `working/slide_plan.md` | Which layouts the AI chose and why | Both |
+| `working/decision_log.md` | How the story was structured | Both |
+| `working/*_source.md` | Full extracted content from the Word file | Word source only |
+| `qa/<name>.qa.json` | Structural QA results | Both |
+| `qa/<name>.rendered_qa.json` | Whether rendered visual review ran or why it could not | Both |
 
 ## Simple Rules For Better Results
 
