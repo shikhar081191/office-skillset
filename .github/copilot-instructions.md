@@ -112,7 +112,9 @@ Visual-bar patterns (full-width header bar, prm-deck-kit style — see `AI_INSTR
 | `numbered_steps_slide()` | Sequential pipeline, onboarding flow, governance process with 3–6 distinct steps | Max 1 per deck |
 | `callout_bar_slide()` | Closing statement — final or penultimate slide only; not a generic bullet slide with a tagline | Max 1 per deck |
 
-**Visual-bar patterns combined must not exceed 2 per deck.** Prefer data-rich patterns
+**No single visual-bar pattern may appear more than once per deck.** Combined visual-bar
+patterns should not exceed half the content slides (title excluded) — for an 8-slide deck
+that means a maximum of 3–4 visual-bar slides. Prefer data-rich patterns
 (`numbers_slide`, `kpi_dashboard_slide`, `results_slide`, `heat_map_slide`,
 `bar_chart_slide`) when the content is quantitative. Use `assertion_evidence_slide`
 or `recommendation_slide` for single-argument slides rather than card layouts.
@@ -263,7 +265,7 @@ palette dictionary to `PptxBuilder` or call `register_palette()` from
 - **Use `key_message` on every slide where the slide has a clear single-sentence takeaway** — it renders as a bold banner and prevents visible blank space below the title
 - **Fill all optional pattern fields when content is available** — `tag` in cards, `so_what` in chart_context, `footnote` in numbered_steps; blank optional fields leave empty space
 - **A slide with large empty areas means the wrong pattern was chosen** — merge the content, switch to a richer pattern, or drop the slide
-- **No pattern may appear more than twice in a deck; visual-bar patterns combined are capped at 2 per deck**
+- **No single visual-bar pattern may appear more than once per deck; combined visual-bar patterns should not exceed half the content slides**
 
 ---
 

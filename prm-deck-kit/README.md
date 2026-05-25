@@ -1,4 +1,14 @@
-# PPTX Toolkit — Portfolio Risk Modelling
+> **Reference material only — not part of this repository's workflow.**
+> This folder contains the original Claude chat toolkit that inspired the
+> Python patterns in this repo. It uses **PptxGenJS (JavaScript)** and
+> references paths such as `/mnt/skills/public/pptx/` that only exist in
+> the Claude chat sandbox environment. None of it runs in this repo.
+> The authoritative workflow for this project is in `AI_INSTRUCTIONS.md`,
+> `STORY_TEMPLATES.md`, and `patterns.py`. Read those instead.
+
+---
+
+# PPTX Toolkit — Portfolio Risk Modelling (Reference)
 
 A portable kit for instructing an AI to build presentation decks
 in the style used by the BlackRock Portfolio Risk Modelling team.

@@ -1732,6 +1732,83 @@ def demo_all():
     ).save("output/demo_diverging_bar_slide.pptx")
     print("output/demo_diverging_bar_slide.pptx")
 
+    # ── Visual-bar patterns (20–23) ───────────────────────────────────────────
+
+    three_column_card_slide(
+        title="Three-Column Cards — Team Overview",
+        cards=[
+            {
+                "tag": "Modelling",
+                "heading": "Quantitative Research",
+                "body": "Builds and validates the factor models; owns the statistical methodology.",
+            },
+            {
+                "tag": "Business",
+                "heading": "Portfolio Risk",
+                "body": "Defines use cases, validates outputs, and shapes the product backlog.",
+            },
+            {
+                "tag": "Platform",
+                "heading": "Analytics Product",
+                "body": "Deploys the infrastructure and maintains uptime for all environments.",
+            },
+        ],
+        bar_color=None,
+        key_message="Three teams, one two-week cadence.",
+    ).save("output/demo_three_column_card_slide.pptx")
+    print("output/demo_three_column_card_slide.pptx")
+
+    two_column_contrast_slide(
+        title="Two-Column Contrast — Problem vs Solution",
+        left_panel={
+            "heading": "Today: manual and slow",
+            "body": (
+                "Scenario analysis takes weeks.\n"
+                "Teams debate assumptions, choose factors, and estimate shocks by hand."
+            ),
+            "accent_color": None,
+        },
+        right_panel={
+            "heading": "With AI MDS: minutes",
+            "body": (
+                "Type the scenario in plain English.\n"
+                "The system structures it, selects factors, and returns a portfolio impact."
+            ),
+        },
+        bar_color=None,
+        key_message="The speed gain is real, but the governance improvement is the deeper value.",
+    ).save("output/demo_two_column_contrast_slide.pptx")
+    print("output/demo_two_column_contrast_slide.pptx")
+
+    numbered_steps_slide(
+        title="Numbered Steps — AI MDS Pipeline",
+        steps=[
+            {"title": "Read the situation",    "description": "Parse plain-English input into a structured scenario narrative."},
+            {"title": "Find historical anchors", "description": "Search for similar past episodes to calibrate plausibility."},
+            {"title": "Identify risk factors",  "description": "Select the factor set this scenario actually moves — the critical step."},
+            {"title": "Estimate factor shocks", "description": "Size each factor shock using historical episodes as a reference."},
+            {"title": "Calculate P&L impact",   "description": "Propagate shocks through a dynamic covariance model to portfolio level."},
+        ],
+        bar_color=None,
+        footnote="Step 3 is the most consequential — wrong factor selection makes everything downstream wrong.",
+        key_message="Five automated steps; a human expert can review and override at each one.",
+    ).save("output/demo_numbered_steps_slide.pptx")
+    print("output/demo_numbered_steps_slide.pptx")
+
+    callout_bar_slide(
+        title="Callout Bar — Governance Closing Slide",
+        body=[
+            "Every scenario follows the same structured process — no shortcuts.",
+            "Every assumption is documented; every override is logged with a reason.",
+            "That frees experts to focus on the hard judgement calls.",
+        ],
+        callout_text=(
+            "Speed is the headline. Consistency and auditability are the deeper value."
+        ),
+        bar_color=None,
+    ).save("output/demo_callout_bar_slide.pptx")
+    print("output/demo_callout_bar_slide.pptx")
+
 
 if __name__ == "__main__":
     demo_all()

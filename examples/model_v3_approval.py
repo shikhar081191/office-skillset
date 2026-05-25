@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from create_pptx import PptxBuilder
+from create_pptx import PptxBuilder, PALETTES
 from patterns import (
     recommendation_slide,
     numbers_slide,
@@ -31,6 +31,8 @@ from patterns import (
     two_column_contrast_slide,
     callout_bar_slide,
 )
+
+prm = PALETTES["prm"]
 
 Path("output").mkdir(exist_ok=True)
 
@@ -98,7 +100,7 @@ two_column_contrast_slide(
             "Shadow running period\n"
             "Two-month parallel run adds latency to full deployment."
         ),
-        "accent_color": "EE9B00",
+        "accent_color": prm["accent"],
     },
     right_panel={
         "heading": "Mitigations",
@@ -110,9 +112,9 @@ two_column_contrast_slide(
             "Shadow run from Jul — Aug\n"
             "Sufficient runway before Q3 deployment date."
         ),
-        "accent_color": "0A9396",
+        "accent_color": prm["secondary"],
     },
-    bar_color="0D1B2A",
+    bar_color=prm["primary"],
     key_message="No blocker prevents approval today. Conditions are manageable pre-deployment.",
     builder=b,
 )
@@ -131,7 +133,7 @@ callout_bar_slide(
         "We need Risk Committee approval today to begin the shadow run in June "
         "and meet the August deployment date."
     ),
-    bar_color="0A9396",
+    bar_color=prm["secondary"],
     builder=b,
 )
 

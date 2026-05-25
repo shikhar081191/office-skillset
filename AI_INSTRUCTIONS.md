@@ -111,10 +111,11 @@ most common Copilot failure modes: card-heavy decks and slides with blank space.
 1. No single pattern may appear more than **twice** in one deck. If a pattern
    would appear three times, either combine two slides or substitute an
    alternative pattern with similar purpose.
-2. Visual-bar patterns (`three_column_card_slide`, `two_column_contrast_slide`,
-   `numbered_steps_slide`, `callout_bar_slide`) are **capped at 2 total per
-   deck**. They are high visual weight; overusing them removes contrast and makes
-   every slide feel the same.
+2. No single **visual-bar** pattern (`three_column_card_slide`,
+   `two_column_contrast_slide`, `numbered_steps_slide`, `callout_bar_slide`)
+   may appear **more than once** per deck. Combined visual-bar patterns should
+   not exceed half the content slides (title excluded). For an 8-slide deck
+   (7 content slides) that means a maximum of 3–4 visual-bar slides.
 3. A deck of 6 or more slides **must use at least 5 different pattern types**.
    (Title and section divider count as one type each.)
 
@@ -184,9 +185,15 @@ Every pattern function takes `builder=b` as its last argument and returns `b`.
 This chains all slides into one file.
 
 ```python
-# Example: approval request deck
-b = PptxBuilder(palette="midnight_executive")
+from create_pptx import PptxBuilder, PALETTES
+from patterns import recommendation_slide, numbers_slide
+from project_workspace import ProjectWorkspace
+from artifact_utilities import ArtifactUtilities
 
+project = ProjectWorkspace("Model v3 Approval")
+prm = PALETTES["prm"]  # use palette constants — never hardcode hex strings
+
+b = PptxBuilder(palette="prm")
 b.title_slide("Model v3 Approval", "Risk Committee · May 2026")
 
 recommendation_slide(
@@ -204,15 +211,33 @@ recommendation_slide(
 numbers_slide(
     title="Performance at a Glance",
     stats=[
-        {"number": "18%",  "label": "PMSE improvement", "context": "vs. current production model"},
+        {"number": "18%",   "label": "PMSE improvement",      "context": "vs. current production model"},
         {"number": "p<.01", "label": "Statistical significance", "context": "across all cohorts"},
-        {"number": "3",    "label": "Asset cohorts validated", "context": "Rates, Credit, Equities"},
+        {"number": "3",     "label": "Asset cohorts validated", "context": "Rates, Credit, Equities"},
     ],
     builder=b,
 )
 
-b.save("outputs/model_v3_approval.pptx", final=True)
+# ── Save, QA, rendered review, output registration ────────────────────────────
+deck_path = project.output_path("model_v3_approval.pptx")
+qa_path   = project.qa_path(deck_path.name)
+b.save(deck_path, final=True, report_path=qa_path)
+
+rendered_qa_path = ArtifactUtilities(project).review_rendered_pptx(deck_path)
+project.register_output(
+    deck_path,
+    qa_report_path=qa_path,
+    patterns=["recommendation_slide", "numbers_slide"],
+    qa_report_paths=(rendered_qa_path,),
+)
+print(deck_path)
 ```
+
+**Every brief-path build script must include all four of these closing calls:**
+1. `b.save(deck_path, final=True, report_path=qa_path)` — runs QA
+2. `ArtifactUtilities(project).review_rendered_pptx(deck_path)` — records rendered review
+3. `project.register_output(...)` — logs the output in `project.json`
+4. Read the QA report; fix errors and actionable warnings; rerun if needed
 
 ### Key Rules
 
