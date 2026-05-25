@@ -63,13 +63,13 @@ For per-slot content rules and fill-in-the-blanks code scaffolds, read
 **Project Explainer** (8 slides — default for non-specialist audiences)
 ```
 1. Title                → PptxBuilder.title_slide
-2. The Problem          → assertion_evidence_slide (left: problem statement)
-3. The Solution         → content_slide or process_slide
-4. How It Works         → process_slide (3–5 steps)
-5. Governance / Controls → status_slide or content_slide
-6. Team / Ownership     → status_slide (one card per owner)
+2. The Problem          → two_column_contrast_slide (left: today's pain, right: cost/risk; navy bar)
+3. The Solution         → assertion_evidence_slide (one headline claim + 3–4 proof points)
+4. How It Works         → numbered_steps_slide (3–5 sequential steps; navy bar)
+5. Governance / Controls → three_column_card_slide (3 control pillars; teal bar)  — OR status_slide
+6. Team / Ownership     → three_column_card_slide (one card per team; navy bar)
 7. Timeline / Where We Are → timeline_slide
-8. Why It Matters       → numbers_slide or recommendation_slide
+8. Why It Matters       → callout_bar_slide (body bullets + single closing statement; teal bar)
 ```
 
 **Exec Update** (5–6 slides)
@@ -101,6 +101,33 @@ For per-slot content rules and fill-in-the-blanks code scaffolds, read
 4. Timeline             → timeline_slide
 5. Decision Needed      → recommendation_slide (optional)
 ```
+
+### Pattern Diversity Rule
+
+Apply these constraints before finalising the slide plan — they prevent the two
+most common Copilot failure modes: card-heavy decks and slides with blank space.
+
+**Variety:**
+1. No single pattern may appear more than **twice** in one deck. If a pattern
+   would appear three times, either combine two slides or substitute an
+   alternative pattern with similar purpose.
+2. Visual-bar patterns (`three_column_card_slide`, `two_column_contrast_slide`,
+   `numbered_steps_slide`, `callout_bar_slide`) are **capped at 2 total per
+   deck**. They are high visual weight; overusing them removes contrast and makes
+   every slide feel the same.
+3. A deck of 6 or more slides **must use at least 5 different pattern types**.
+   (Title and section divider count as one type each.)
+
+**Preference order for content with data:**
+- Numbers → `numbers_slide`, `kpi_dashboard_slide`
+- Comparisons → `results_slide`, `heat_map_slide`, `diverging_bar_slide`
+- Trends → `bar_chart_slide`, `line_chart_slide`, `waterfall_slide`
+- Sequential steps → `numbered_steps_slide` (visual-bar) or `process_slide`
+- Cards only when content is genuinely 3 parallel equal-weight items with real
+  body text — not when it is one argument with sub-points
+
+**`callout_bar_slide` is a closing pattern.** Use it once per deck on the final
+or penultimate slide. Do not use it as a generic bullet slide with a tagline.
 
 ---
 
@@ -191,10 +218,12 @@ b.save("outputs/model_v3_approval.pptx", final=True)
 
 1. **Always pass `builder=b`** to every pattern call — this puts all slides in one file
 2. **Never pass more data than a pattern can render** — check the pattern file for limits
-3. **Use `key_message`** for the single most important sentence on that slide (rendered bold below the title)
+3. **Use `key_message` on every slide that has a clear single-sentence takeaway.** It renders as a bold banner below the title and fills what would otherwise be blank space at the top of the content area. If you can't write one sentence summarising the slide's point, the slide probably needs a different pattern.
 4. **Bullet text must be short** — max 10 words per bullet; split long text across two slides
 5. **Numeric data in tables/heat maps must be pre-processed** — pass floats, not formatted strings, to value arrays
 6. **Do not create slides without data** — if you don't have content for a slot, drop that slide
+7. **Fill all optional fields when content supports them.** In `three_column_card_slide`, write real body text in all cards and use the `tag` field. In `chart_context_slide`, populate `so_what`. In `numbered_steps_slide`, use `footnote` if there is a caveat. Blank optional fields are not neutral — they leave visible empty space.
+8. **A slide with large empty areas means the wrong pattern was chosen.** If a slide looks sparse — few short bullets, mostly whitespace — switch to a richer data pattern or merge the content onto an adjacent slide. Do not pad with filler text.
 
 ### Text Quality Rules (apply to all text you write into slides)
 
@@ -310,6 +339,12 @@ All patterns work with any palette; the `prm` palette looks best with 20–23.
 
 - **Never create a slide for every section in the brief** — pick the patterns that best represent the insight, not the structure
 - **Never use the same pattern twice in a row** — vary the visual rhythm
+- **Never use any pattern more than twice in one deck** — see Pattern Diversity Rule above
+- **Never use visual-bar patterns (20–23) more than twice per deck** — they are accent patterns, not the default layout
+- **Never use `three_column_card_slide` for narrative content** — it needs genuinely parallel items with real body text in all three cards; use `assertion_evidence_slide` or `callout_bar_slide` for single-argument slides
+- **Never leave `key_message` blank** when the slide has a clear takeaway — its absence causes visible blank space below the title
+- **Never use `callout_bar_slide` in the middle of a deck** — it is a closing pattern; one per deck, final or penultimate slide only
+- **Never default to card patterns when quantitative data is present** — use `numbers_slide`, `kpi_dashboard_slide`, `results_slide`, `heat_map_slide` or a native chart instead
 - **Never put more than 5 bullets on a slide** — cut or split
 - **Never leave placeholder text** — if you don't have real data for a field, either drop the field or write "TBC" explicitly
 - **Always chain patterns onto the same builder** — one `PptxBuilder`, one file

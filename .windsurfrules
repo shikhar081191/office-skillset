@@ -105,12 +105,17 @@ Additional research patterns:
 
 Visual-bar patterns (full-width header bar, prm-deck-kit style — see `AI_INSTRUCTIONS.md`):
 
-| Pattern function | When to use |
-|-----------------|-------------|
-| `three_column_card_slide()` | Team slides, 3-feature breakdown, 3-property comparison |
-| `two_column_contrast_slide()` | Problem vs solution, before vs after, context vs detail |
-| `numbered_steps_slide()` | Vertical pipeline, onboarding flow, governance process |
-| `callout_bar_slide()` | Any content slide ending with a strong closing or governance statement |
+| Pattern function | When to use | Cap |
+|-----------------|-------------|-----|
+| `three_column_card_slide()` | Team slides, 3-feature breakdown — only when content is genuinely 3 parallel items with real body text in all cards | Max 1 per deck |
+| `two_column_contrast_slide()` | Problem vs solution, before vs after — one use early in deck to frame the narrative | Max 1 per deck |
+| `numbered_steps_slide()` | Sequential pipeline, onboarding flow, governance process with 3–6 distinct steps | Max 1 per deck |
+| `callout_bar_slide()` | Closing statement — final or penultimate slide only; not a generic bullet slide with a tagline | Max 1 per deck |
+
+**Visual-bar patterns combined must not exceed 2 per deck.** Prefer data-rich patterns
+(`numbers_slide`, `kpi_dashboard_slide`, `results_slide`, `heat_map_slide`,
+`bar_chart_slide`) when the content is quantitative. Use `assertion_evidence_slide`
+or `recommendation_slide` for single-argument slides rather than card layouts.
 
 If no pattern fits, fall back to `PptxBuilder` directly (see PPTX section below).
 
@@ -255,6 +260,10 @@ palette dictionary to `PptxBuilder` or call `register_palette()` from
 - Dark backgrounds for title + conclusion, light for content
 - Never centre body text — only centre titles and stat numbers
 - Title font: 22–44pt bold; body 18–22pt for text-only slides, 9–14pt when visuals carry the canvas
+- **Use `key_message` on every slide where the slide has a clear single-sentence takeaway** — it renders as a bold banner and prevents visible blank space below the title
+- **Fill all optional pattern fields when content is available** — `tag` in cards, `so_what` in chart_context, `footnote` in numbered_steps; blank optional fields leave empty space
+- **A slide with large empty areas means the wrong pattern was chosen** — merge the content, switch to a richer pattern, or drop the slide
+- **No pattern may appear more than twice in a deck; visual-bar patterns combined are capped at 2 per deck**
 
 ---
 
