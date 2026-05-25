@@ -1,10 +1,10 @@
 # Office File Toolkit
 
-Core Python builders plus nineteen reusable PowerPoint slide patterns for
+Core Python builders plus 23 reusable PowerPoint slide patterns for
 research storytelling, model comparison and executive communication.
 
 Pure-Python builders for .pptx, .docx, and .xlsx — no npm, no Node.js,
-no LibreOffice for core generation. Plus nineteen reusable PowerPoint slide patterns ready to call
+no LibreOffice for core generation. Plus 23 reusable PowerPoint slide patterns ready to call
 from an AI assistant or a script.
 
 ---
@@ -14,6 +14,25 @@ from an AI assistant or a script.
 ```bash
 pip install -r requirements.txt
 ```
+
+> **Windows note:** `requirements.txt` includes `pywin32`, which is used by
+> `tools/add_reference_slides.py` to export slides as PNG via PowerPoint COM.
+> If you are on macOS or Linux, remove the `pywin32` line from `requirements.txt`
+> before installing — PNG export will be skipped gracefully and the gallery will
+> still be created with full text annotations.
+
+### Adding reference slides (one-time per new deck)
+
+When you have a deck whose slides you want the AI to treat as visual targets:
+
+```bash
+python tools/add_reference_slides.py path/to/good_deck.pptx 1,2,3,4,5
+```
+
+This exports the specified slides as PNG thumbnails into `skills/examples/`,
+writes annotations into `skills/REFERENCE_GALLERY.md`, and patches
+`AI_INSTRUCTIONS.md` to reference the gallery. Commit the result and the AI
+will match that style on every subsequent build.
 
 ---
 

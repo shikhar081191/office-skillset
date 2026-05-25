@@ -9,3 +9,7 @@ pandas>=2.0.0            # Data analysis and Excel I/O
 Pillow>=10.0.0           # Image processing
 defusedxml>=0.7.1        # Safe XML parsing
 lxml>=4.9.0              # Advanced retained DOCX OOXML utilities
+
+# Windows-only — required for tools/add_reference_slides.py (PNG export via PowerPoint COM)
+# Remove this line if installing on macOS or Linux (PNG export will be skipped gracefully)
+pywin32>=306             # PowerPoint COM automation for slide → PNG export
