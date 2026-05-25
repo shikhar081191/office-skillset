@@ -72,6 +72,18 @@ PALETTES = {
         "text_dark":  "B85042",
         "text_light": "FFFFFF",
     },
+    "prm": {
+        "primary":    "0D1B2A",  # Navy — headers, dark backgrounds, title slides
+        "secondary":  "0A9396",  # Teal — header bars on positive/solution slides
+        "accent":     "EE9B00",  # Amber — warnings, callouts, "now" markers
+        "text_dark":  "4A5568",  # Charcoal — body text on white/off-white
+        "text_light": "FFFFFF",  # White — text on dark/teal backgrounds
+        "background": "E9F5F5",  # Off-white — slide backgrounds
+        "surface":    "FFFFFF",  # White — cards and content areas
+        "surface_alt":"94D2BD",  # Pale teal — secondary text on dark backgrounds
+        "border":     "E2E8F0",  # Light gray — card borders, dividers
+        "muted_text": "4E6070",  # Dark slate — secondary text on light backgrounds (5.5:1 on off-white)
+    },
 }
 
 

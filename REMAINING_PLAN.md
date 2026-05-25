@@ -2,23 +2,25 @@
 
 ## Where The Toolkit Is Today
 
-The core PowerPoint workflow is usable through an AI chat assistant:
+The core PowerPoint workflow is usable through an AI chat assistant via two paths:
 
-- Users can supply notes in chat or provide a Word brief containing narrative
-  and tables.
-- Word intake preserves source context, creates an internal scaffold and keeps
-  the original input inside a project workspace.
-- The AI is instructed to read the full pattern catalog, create a slide plan
-  and build a refined visual deck rather than deliver copied source text.
-- The library includes research-oriented slide patterns for comparisons,
-  findings, heat maps, waterfalls, timelines, scorecards, prioritisation and
-  decision slides.
-- BlackRock is the default palette and alternate/custom palettes can be used.
-- Final refined PPTX builds run structural QA, including overlap, crowding,
-  contrast, density and repeated-panel alignment checks.
-- Final refined PPTX builds record rendered-review status; actual preview
-  rendering runs when its optional runtime is installed.
-- A reusable Q2 model-review project demonstrates the intended workflow.
+**Brief-based path (fast, no Word file needed)**
+- Users fill in `BRIEF_TEMPLATE.md` (2 minutes) and paste it into Copilot or Windsurf.
+- `AI_INSTRUCTIONS.md` gives the assistant a 5-step procedural guide: parse brief → plan story → write script → interpret QA → deliver.
+- `STORY_TEMPLATES.md` provides 5 named narrative sequences (Approval Request, Project Explainer, Exec Update, Research Findings, Status Update) with prescribed slide order, opening principles and code scaffolds.
+- The assistant selects the right template, maps evidence to slide slots and builds a refined visual deck directly.
+
+**Word-source path (structured intake for longer documents)**
+- Users supply a `.docx` file containing narrative and tables.
+- `deck.py` runs intake: preserves source context, creates an internal scaffold and copies the original input into a project workspace.
+- The AI reads the full pattern catalog, creates `working/slide_plan.md` and builds a refined visual deck rather than delivering copied source text.
+
+**Shared capabilities (both paths)**
+- 23 reusable slide patterns: 19 standard thin-rule patterns plus 4 visual-bar patterns with full-width colored header bars (`three_column_card_slide`, `two_column_contrast_slide`, `numbered_steps_slide`, `callout_bar_slide`).
+- Named palettes: BlackRock (default), prm (navy/teal/amber), midnight_executive, plus custom/team palettes via `register_palette`.
+- Final refined PPTX builds run structural QA including overlap, crowding, contrast, density and repeated-panel alignment checks.
+- Final refined PPTX builds record rendered-review status; actual preview rendering runs when its optional runtime is installed.
+- End-to-end tested: `examples/model_v3_approval.py` produces a 6-slide approval deck (0 errors).
 
 Word and Excel builders, QA modules and retained advanced utilities are present,
 but their reusable pattern coverage is less developed than PowerPoint.
@@ -38,12 +40,12 @@ chat-driven workflow.
 Objective: make each new real project feel predictable for a non-technical
 user.
 
-- Add a clean reusable project starter/example that does not contain completed
-  outputs.
-- Define one standard prompt for PowerPoint, one for Word documents and one
-  for Excel workbooks.
+- ~~Add a clean reusable project starter/example~~ — done: `examples/model_v3_approval.py`
+- ~~Define one standard prompt for PowerPoint~~ — done: `BRIEF_TEMPLATE.md` + `AI_INSTRUCTIONS.md`
 - Add a small revision workflow guide for requests such as "make the
   recommendation stronger" or "turn this table into a chart".
+- Define standard prompts for Word document and Excel workbook builds
+  comparable to the PowerPoint brief path.
 - Decide whether project outputs and QA evidence should be committed for
   examples only, or retained locally for real confidential work.
 
@@ -103,8 +105,9 @@ Objective: keep the repository easy to maintain as utilities increase.
 
 | Phase | Focus | Outcome |
 |---|---|---|
-| Current release | Publish the working PPTX-first toolkit and documentation | Team can begin controlled Copilot/Windsurf trials |
-| Next iteration | Install rendered QA runtime and create reusable project starters | More reliable visual delivery and easier onboarding |
+| Completed | Brief-based build path, 4 visual-bar patterns, story templates, prm palette, end-to-end test | Users can build decks from a 2-minute brief without a Word file |
+| Current release | Publish toolkit with brief path + Word path documented and tested | Team can begin controlled Copilot/Windsurf trials |
+| Next iteration | Install rendered QA runtime; add revision workflow guide; Word and Excel brief prompts | More reliable visual delivery and easier onboarding across all output types |
 | Following iteration | Add Word report/template patterns | Committee notes and whitepapers become repeatable |
 | Later iteration | Add richer Excel model/reporting patterns | Complete PPTX/DOCX/XLSX research workflow |
 | As needed | Internal package restructuring | Cleaner maintainability without breaking user prompts |

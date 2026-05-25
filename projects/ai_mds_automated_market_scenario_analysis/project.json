@@ -1,0 +1,39 @@
+{
+  "name": "AI MDS \u2014 Automated Market Scenario Analysis",
+  "slug": "ai_mds_automated_market_scenario_analysis",
+  "created_utc": "2026-05-25T02:56:13.573634+00:00",
+  "folders": {
+    "inputs": "inputs",
+    "assets": "assets",
+    "working": "working",
+    "outputs": "outputs",
+    "qa": "qa"
+  },
+  "workflow_runs": [
+    {
+      "workflow": "manual_refinement",
+      "run_utc": "2026-05-25T03:05:45.222645+00:00",
+      "inputs": [],
+      "outputs": [
+        "outputs\\ai_mds_automated_market_scenario_analysis.pptx"
+      ],
+      "working_files": [
+        "working\\user_instructions.txt",
+        "working\\decision_log.md",
+        "working\\slide_plan.md"
+      ],
+      "qa_reports": [
+        "qa\\ai_mds_automated_market_scenario_analysis.qa.json",
+        "qa\\ai_mds_automated_market_scenario_analysis.rendered_qa.json"
+      ],
+      "patterns": [
+        "two_column_contrast_slide",
+        "assertion_evidence_slide",
+        "process_slide",
+        "three_column_card_slide",
+        "timeline_slide"
+      ],
+      "notes": "Refined AI MDS explainer deck for a junior analyst audience."
+    }
+  ]
+}

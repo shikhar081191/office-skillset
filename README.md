@@ -166,6 +166,15 @@ Additional research-oriented patterns:
 | `bar_chart_slide()` | Bar chart | Native clustered column chart for category comparisons |
 | `line_chart_slide()` | Line chart | Native line chart for time-series trends |
 
+Visual-bar patterns (full-width header bar, prm-deck-kit style):
+
+| Function | Pattern | When to reach for it |
+|----------|---------|----------------------|
+| `three_column_card_slide()` | Three-column cards | Team slides, 3-feature breakdown, 3-property comparison |
+| `two_column_contrast_slide()` | Two-column contrast | Problem vs solution, before vs after, context vs detail |
+| `numbered_steps_slide()` | Numbered steps | Vertical pipeline, onboarding flow, governance process (up to 6 steps) |
+| `callout_bar_slide()` | Callout bar | Content slide ending with a strong governance or closing statement |
+
 All patterns default to the **BlackRock palette**. Every pattern uses the active
 builder palette, so a whole deck can switch styling without changes to pattern code.
 Pass a named palette to `PptxBuilder`, pass an external palette dictionary, or
@@ -174,6 +183,10 @@ register a reusable team palette:
 ```python
 from create_pptx import PptxBuilder, register_palette
 
+register_palette("prm", {  # built-in: navy/teal/amber financial palette
+    "primary": "0D1B2A", "secondary": "0A9396", "accent": "EE9B00",
+    "text_dark": "4A5568", "text_light": "FFFFFF",
+})
 register_palette("team_brand", {
     "primary": "113355",
     "secondary": "29A3A3",

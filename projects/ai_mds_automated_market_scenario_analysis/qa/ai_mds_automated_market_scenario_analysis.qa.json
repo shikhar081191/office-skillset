@@ -1,0 +1,25 @@
+{
+  "path": "projects\\ai_mds_automated_market_scenario_analysis\\outputs\\ai_mds_automated_market_scenario_analysis.pptx",
+  "slide_count": 8,
+  "final": true,
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "checks": {
+    "bounds": 130,
+    "placeholder_text": 74,
+    "font_size": 74,
+    "text_crowding": 74,
+    "solid_contrast": 74,
+    "image_resolution": 0,
+    "table_density": 0,
+    "bullet_count": 0,
+    "bullet_length": 0,
+    "slide_text_volume": 8,
+    "visual_density": 0,
+    "text_only_font": 0,
+    "space_utilisation": 8,
+    "shape_overlap": 0,
+    "layout_symmetry": 0
+  }
+}

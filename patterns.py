@@ -97,6 +97,21 @@ def _header(slide, b, p, title, message=None):
     return 0.85
 
 
+def _prm_header(slide, b, p, title, bar_color=None):
+    """Full-width colored header bar with white title (prm-deck-kit style).
+
+    Returns the y-inch offset where content should start (1.25").
+    bar_color: hex string; defaults to palette secondary (teal).
+    """
+    color = bar_color or p["secondary"]
+    b._add_rectangle(slide, x=0, y=0, w=PptxBuilder.SLIDE_W, h=Inches(1.05),
+                     fill_color=color)
+    b._add_text_box(slide, title,
+                    x=Inches(0.55), y=Inches(0.15), w=Inches(12.20), h=Inches(0.75),
+                    font_size=28, bold=True, color=p["text_light"])
+    return 1.25
+
+
 def _oval(slide, x, y, size, color):
     shape = slide.shapes.add_shape(
         MSO_AUTO_SHAPE_TYPE.OVAL, int(x), int(y), int(size), int(size)
@@ -1301,6 +1316,239 @@ def line_chart_slide(title, categories, series, footnote=None,
                         x=Inches(0.75), y=Inches(6.97),
                         w=Inches(11.8), h=Inches(0.28),
                         font_size=7, color=p["muted_text"], italic=True)
+    return b
+
+
+# ── 20. Three-Column Cards ────────────────────────────────────────────────────
+
+def three_column_card_slide(title, cards, bar_color=None, key_message=None,
+                             builder=None, palette=None):
+    """
+    Three equal-width cards below a full-width header bar (prm-deck-kit style).
+
+    cards:     list of up to 3 dicts — {heading, body, tag (optional accent label)}
+    bar_color: hex colour for the header bar; defaults to palette secondary (teal)
+    """
+    b, p = _palette_builder(builder, palette)
+    slide = b.prs.slides.add_slide(b._blank_layout)
+    b._fill_background(slide, p["background"])
+    content_y = _prm_header(slide, b, p, title, bar_color or p["secondary"])
+
+    if key_message:
+        b._add_text_box(slide, key_message,
+                        x=Inches(0.55), y=Inches(content_y), w=Inches(12.20), h=Inches(0.38),
+                        font_size=13, bold=True, color=p["primary"])
+        content_y += 0.42
+
+    n = min(len(cards), 3)
+    gap = 0.22
+    card_w = (12.33 - gap * (n - 1)) / n
+    start_x = (13.33 - (n * card_w + (n - 1) * gap)) / 2
+    card_y = content_y + 0.12
+    card_h = 7.5 - card_y - 0.30
+
+    for i, card in enumerate(cards[:n]):
+        cx = start_x + i * (card_w + gap)
+
+        b._add_rectangle(slide, x=Inches(cx), y=Inches(card_y),
+                         w=Inches(card_w), h=Inches(card_h),
+                         fill_color=p["surface"], line_color=p["border"])
+        b._add_rectangle(slide, x=Inches(cx), y=Inches(card_y),
+                         w=Inches(card_w), h=Inches(0.10),
+                         fill_color=p["secondary"])
+
+        body_start_y = card_y + 0.22
+        tag = card.get("tag", "")
+        if tag:
+            b._add_text_box(slide, tag.upper(),
+                            x=Inches(cx + 0.20), y=Inches(card_y + 0.18),
+                            w=Inches(card_w - 0.40), h=Inches(0.28),
+                            font_size=9, bold=True, color=p["primary"])
+            body_start_y = card_y + 0.50
+
+        b._add_text_box(slide, card.get("heading", ""),
+                        x=Inches(cx + 0.20), y=Inches(body_start_y),
+                        w=Inches(card_w - 0.40), h=Inches(0.55),
+                        font_size=14, bold=True, color=p["primary"])
+
+        desc_y = body_start_y + 0.60
+        desc_h = max(0.20, card_h - (desc_y - card_y) - 0.20)
+        b._add_text_box(slide, card.get("body", ""),
+                        x=Inches(cx + 0.20), y=Inches(desc_y),
+                        w=Inches(card_w - 0.40), h=Inches(desc_h),
+                        font_size=11, color=p["text_dark"], wrap=True)
+
+    return b
+
+
+# ── 21. Two-Column Contrast ───────────────────────────────────────────────────
+
+def two_column_contrast_slide(title, left_panel, right_panel, bar_color=None,
+                               key_message=None, builder=None, palette=None):
+    """
+    Two-column contrast layout — left for problem/context, right for solution/detail.
+
+    left_panel:  dict — {heading, body, accent_color (optional hex border colour)}
+    right_panel: dict — {heading, body, accent_color (optional hex border colour)}
+    bar_color:   hex for header bar; defaults to palette primary (navy)
+    """
+    b, p = _palette_builder(builder, palette)
+    slide = b.prs.slides.add_slide(b._blank_layout)
+    b._fill_background(slide, p["background"])
+    content_y = _prm_header(slide, b, p, title, bar_color or p["primary"])
+
+    if key_message:
+        b._add_text_box(slide, key_message,
+                        x=Inches(0.55), y=Inches(content_y), w=Inches(12.20), h=Inches(0.38),
+                        font_size=13, bold=True, color=p["primary"])
+        content_y += 0.42
+
+    panel_y = content_y + 0.15
+    panel_h = 7.5 - panel_y - 0.25
+    left_x,  left_w  = 0.50, 5.70
+    right_x, right_w = 6.70, 6.10
+
+    left_accent  = left_panel.get("accent_color")  or p["accent"]
+    right_accent = right_panel.get("accent_color") or p["secondary"]
+
+    for x, w, panel, accent in [
+        (left_x,  left_w,  left_panel,  left_accent),
+        (right_x, right_w, right_panel, right_accent),
+    ]:
+        b._add_rectangle(slide, x=Inches(x), y=Inches(panel_y),
+                         w=Inches(w), h=Inches(panel_h),
+                         fill_color=p["surface"], line_color=p["border"])
+        b._add_rectangle(slide, x=Inches(x), y=Inches(panel_y),
+                         w=Inches(0.08), h=Inches(panel_h),
+                         fill_color=accent)
+        b._add_text_box(slide, panel.get("heading", ""),
+                        x=Inches(x + 0.22), y=Inches(panel_y + 0.22),
+                        w=Inches(w - 0.35), h=Inches(0.55),
+                        font_size=15, bold=True, color=p["primary"])
+        b._add_text_box(slide, panel.get("body", ""),
+                        x=Inches(x + 0.22), y=Inches(panel_y + 0.85),
+                        w=Inches(w - 0.35), h=Inches(panel_h - 1.10),
+                        font_size=11, color=p["text_dark"], wrap=True)
+
+    return b
+
+
+# ── 22. Numbered Steps (Vertical) ─────────────────────────────────────────────
+
+def numbered_steps_slide(title, steps, bar_color=None, footnote=None,
+                          key_message=None, builder=None, palette=None):
+    """
+    Vertical numbered steps with connector lines — for pipelines, onboarding flows.
+
+    steps:     list of dicts — {title (or name), description}; max 6
+    bar_color: hex for header bar; defaults to palette primary (navy)
+    footnote:  optional small italic note at the bottom
+    """
+    b, p = _palette_builder(builder, palette)
+    slide = b.prs.slides.add_slide(b._blank_layout)
+    b._fill_background(slide, p["background"])
+    content_y = _prm_header(slide, b, p, title, bar_color or p["primary"])
+
+    if key_message:
+        b._add_text_box(slide, key_message,
+                        x=Inches(0.55), y=Inches(content_y), w=Inches(12.20), h=Inches(0.38),
+                        font_size=13, bold=True, color=p["primary"])
+        content_y += 0.42
+
+    n = min(len(steps), 6)
+    dot_d   = 0.58
+    dot_x   = 0.55
+    text_x  = dot_x + dot_d + 0.22
+    text_w  = 11.00
+    footer_space = 0.45 if footnote else 0.20
+    available_h  = 7.5 - content_y - footer_space
+    row_h = available_h / max(n, 1)
+
+    for i, step in enumerate(steps[:n]):
+        cy = content_y + i * row_h + (row_h - dot_d) / 2
+
+        if i > 0:
+            prev_cy  = content_y + (i - 1) * row_h + (row_h - dot_d) / 2
+            line_top = prev_cy + dot_d + 0.04
+            line_h   = cy - line_top - 0.04
+            if line_h > 0.02:
+                b._add_rectangle(slide,
+                                 x=Inches(dot_x + dot_d / 2 - 0.015),
+                                 y=Inches(line_top),
+                                 w=Inches(0.03), h=Inches(line_h),
+                                 fill_color=p["border"])
+
+        _oval(slide, Inches(dot_x), Inches(cy), Inches(dot_d), p["secondary"])
+        b._add_text_box(slide, str(i + 1),
+                        x=Inches(dot_x), y=Inches(cy + 0.07),
+                        w=Inches(dot_d), h=Inches(dot_d - 0.14),
+                        font_size=16, bold=True, color=p["text_light"],
+                        align=PP_ALIGN.CENTER)
+
+        step_title = step.get("title", step.get("name", ""))
+        b._add_text_box(slide, step_title,
+                        x=Inches(text_x), y=Inches(cy),
+                        w=Inches(text_w), h=Inches(0.36),
+                        font_size=14, bold=True, color=p["primary"])
+
+        desc = step.get("description", "")
+        if desc:
+            desc_limit = 7.5 - footer_space - 0.05
+            desc_h = max(0.15, min(row_h - 0.44, desc_limit - (cy + 0.38)))
+            b._add_text_box(slide, desc,
+                            x=Inches(text_x), y=Inches(cy + 0.38),
+                            w=Inches(text_w), h=Inches(desc_h),
+                            font_size=11, color=p["text_dark"], wrap=True)
+
+    if footnote:
+        b._add_text_box(slide, footnote,
+                        x=Inches(0.55), y=Inches(7.05),
+                        w=Inches(12.20), h=Inches(0.30),
+                        font_size=8, italic=True, color=p["muted_text"])
+
+    return b
+
+
+# ── 23. Callout Bar ───────────────────────────────────────────────────────────
+
+def callout_bar_slide(title, body, callout_text, bar_color=None,
+                      builder=None, palette=None):
+    """
+    Content slide with a full-width navy bar anchored to the bottom.
+
+    body:         string or list of bullet strings (main content area)
+    callout_text: statement shown in pale teal italic inside the bottom bar
+    bar_color:    hex for header bar; defaults to palette secondary (teal)
+    """
+    b, p = _palette_builder(builder, palette)
+    slide = b.prs.slides.add_slide(b._blank_layout)
+    b._fill_background(slide, p["background"])
+    content_y = _prm_header(slide, b, p, title, bar_color or p["secondary"])
+
+    callout_h = 0.65
+    callout_y = 7.5 - callout_h
+
+    if isinstance(body, list):
+        body_text = "\n".join(f"•  {item}" for item in body)
+        font_size = 18 if len(body) <= 3 else 15 if len(body) <= 5 else 13
+    else:
+        body_text = body
+        font_size = 18 if len(body.split()) <= 40 else 14
+
+    body_h = callout_y - content_y - 0.30
+    b._add_text_box(slide, body_text,
+                    x=Inches(0.70), y=Inches(content_y + 0.18),
+                    w=Inches(12.10), h=Inches(body_h),
+                    font_size=font_size, color=p["text_dark"], wrap=True)
+
+    b._add_rectangle(slide, x=0, y=Inches(callout_y),
+                     w=PptxBuilder.SLIDE_W, h=Inches(callout_h),
+                     fill_color=p["primary"])
+    b._add_text_box(slide, callout_text,
+                    x=Inches(0.55), y=Inches(callout_y + 0.12),
+                    w=Inches(12.20), h=Inches(callout_h - 0.22),
+                    font_size=12, italic=True, color=p["surface_alt"])
+
     return b
 
 

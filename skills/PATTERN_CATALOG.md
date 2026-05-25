@@ -64,6 +64,17 @@ the plan in both `working/slide_plan.md` and `working/decision_log.md`.
 | `assumption_table_slide` | Document model/scenario assumptions and sensitivity | Assumptions, values, sources, sensitivity | The story is result performance rather than inputs |
 | `content_slide` | Hold unavoidable residual prose only | Short material that fits no visual pattern | As a default transformation of Word narrative |
 
+### Visual-bar patterns (full-width header bar)
+
+These four patterns use a full-width colored header bar instead of the thin rule used by the patterns above. Use them when the deck has a bolder, more structured visual style — or when `bar_color` variation communicates meaning (teal = solution/positive, navy = problem/team/status, amber = caution).
+
+| Pattern | Select when the slide's job is... | Required source shape | Avoid when... |
+|---|---|---|---|
+| `three_column_card_slide` | Break a concept, team or proposal into 3 equal parts | 2-3 items each with heading, body and optional tag | More than 3 items or highly variable body length |
+| `two_column_contrast_slide` | Frame a problem vs solution, before vs after, or context vs detail | Left and right panels with heading, body and accent color | A single narrative or a table comparison is more appropriate |
+| `numbered_steps_slide` | Show a sequential pipeline, process or governance flow | Up to 6 steps with title and description | The steps are not sequential or dates drive the story |
+| `callout_bar_slide` | End a section with a strong closing statement, mandate or governance note | Body bullets and a single callout sentence | No single statement needs emphasis above the rest |
+
 ## Utility Selection Cues
 
 Patterns are not the only available tools. While planning, consider:

@@ -1,0 +1,1 @@
+Build a simple project explainer deck for a junior analyst. Use the prm palette, keep language plain, define terms on first use, and limit content to 8 slides.

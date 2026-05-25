@@ -37,6 +37,34 @@ You do not need to specify individual slide designs. The assistant should
 select suitable patterns such as charts, heat maps, timelines, scorecards or
 recommendation slides based on your evidence.
 
+## Starting From a Brief (No Word File)
+
+If you don't have a Word document, use `BRIEF_TEMPLATE.md`. Copy the blank
+brief, fill it in (takes ~2 minutes), then paste it into Copilot or Windsurf
+chat along with your raw notes. The AI reads `AI_INSTRUCTIONS.md` and
+`STORY_TEMPLATES.md`, picks the right story template, and builds the deck
+directly — no intake step needed.
+
+```text
+[paste your filled BRIEF_TEMPLATE.md here]
+
+NOTES:
+Model v3 improved PMSE by 18.2% on holdout data. Bills drove 46pp of the gain.
+Validated across Rates, Credit, Equities. FX excluded — separate Q4 workstream.
+Legal sign-off on data lineage still in progress, target 30 Jun...
+```
+
+The AI will:
+1. Detect the deck purpose and pick a story template (e.g. Approval Request)
+2. Map your notes to the right slide slots
+3. Build a 5–8 slide deck using the appropriate visual patterns
+4. Run QA and fix any issues before delivery
+
+This is the fastest path when your material is still rough thinking rather than
+a structured document.
+
+---
+
 ## A Good Prompt
 
 ### Recommended Word-To-PowerPoint Prompt
@@ -88,6 +116,79 @@ them, keep detail concise, and run QA before giving me the final deck.
 
 [Paste notes and figures here]
 ```
+
+### From Free-Form Notes — Full Worked Example
+
+Use this pattern when your source material is unstructured thinking you have
+typed or dictated, with no Word file and no pre-formatted bullets. The AI
+should select the right story template from `STORY_TEMPLATES.md`, simplify
+language for the stated audience, design visual layouts around the structure,
+and produce a clean deck — not slide-ified paragraphs.
+
+The prompt below is a complete, ready-to-use example. Replace the bracketed
+notes block with your own content before sending.
+
+```text
+Build a polished PowerPoint from the free-form notes below.
+
+Project name: AI MDS — Automated Market Scenario Analysis
+Audience: Junior analyst with no prior background in quantitative risk or
+portfolio modelling. Assume no knowledge of internal systems, terminology
+or team structure.
+Purpose: Explain what the AI MDS project is, how the pipeline works, and
+why it matters — both for speed and for governance.
+Style: Use the prm palette (navy/teal). Plain language throughout — define
+any technical concept the first time it appears, no unexplained acronyms.
+Max slides: 8
+Emphasis: The five-step pipeline is the core of the story. The human-in-
+the-loop safeguard is the second priority. The governance and audit angle
+is the closing message and should land as the deeper value, not an afterthought.
+
+Please follow the AI_INSTRUCTIONS.md workflow:
+- Read STORY_TEMPLATES.md and select the appropriate template for this content.
+- Create a slide plan before building — record which pattern you chose for
+  each slide and why.
+- Build a refined visual presentation using process flows, numbered steps,
+  cards and contrast panels where the content supports them. Do not copy
+  paragraphs onto slides.
+- Run QA, fix any real issues, and deliver only the final refined deck
+  with its QA evidence.
+- Save all outputs to a new project folder under projects/.
+
+NOTES:
+[Paste your free-form notes here — unedited, in whatever order they came to you.
+The AI will organise, simplify and structure them. You do not need to clean them up.]
+```
+
+#### Why this prompt works
+
+| Element | Why it matters |
+|---|---|
+| Audience line | Tells the AI what language level to target — this changes word choice, what gets defined, how much context each slide needs |
+| Purpose line | Separates "explain what it is" from "approve this" — the AI picks a Project Explainer template rather than an Approval Request |
+| Emphasis line | The AI has 8 slots and more than 8 topics — you decide what stays in and what lands at the end |
+| Workflow instruction | Ensures a slide plan is written before the deck is built; without this Copilot may skip straight to output |
+| Notes block | Paste raw text exactly as it is — the AI's job is to extract structure, not yours |
+
+#### What the AI will do with this
+
+Following `STORY_TEMPLATES.md`, the AI will identify this as a **Project Explainer**
+and apply that template's opening principle: *lead with the problem, not the solution*.
+A likely slide sequence for the notes above:
+
+| # | Slide | Pattern |
+|---|---|---|
+| 1 | Title | `title_slide` |
+| 2 | The problem: scenario analysis today is slow and manual | `two_column_contrast_slide` (navy bar — problem framing) |
+| 3 | What we built: plain-English to portfolio P&L in minutes | `assertion_evidence_slide` |
+| 4 | How it works: the five-step pipeline | `numbered_steps_slide` (navy bar) |
+| 5 | Human in the loop: every step is reviewable and auditable | `three_column_card_slide` (teal bar) |
+| 6 | Who is involved: three teams, one two-week cadence | `three_column_card_slide` (navy bar) |
+| 7 | Where we are: prototype live, beta testing mid-year, production H2 2026 | `timeline_slide` |
+| 8 | Why it matters: speed is the headline, governance is the real value | `callout_bar_slide` (teal bar) |
+
+The AI may deviate from this sequence based on what fits the evidence. The
+`working/slide_plan.md` it creates will explain every choice.
 
 ### From A Word File And Excel Results
 

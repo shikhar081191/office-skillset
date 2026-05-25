@@ -48,6 +48,20 @@ user pastes bullets or a table
 
 ---
 
+## Brief-based builds (no Word source file)
+
+When the user provides a plain-text brief or a filled `BRIEF_TEMPLATE.md`
+instead of a `.docx`, skip the `deck.py` intake step and follow
+`AI_INSTRUCTIONS.md` directly — it has the complete brief → deck workflow.
+
+| File | Purpose |
+|------|---------|
+| `AI_INSTRUCTIONS.md` | Step-by-step brief → deck workflow (parse → plan → build → QA) |
+| `STORY_TEMPLATES.md` | Per-slide content rules and code scaffolds for 5 deck types |
+| `BRIEF_TEMPLATE.md` | Standard brief format; users paste this + their notes into chat |
+
+---
+
 ## Step 1 — Inventory the pattern choices first
 
 Before writing refined deck code, read `skills/PATTERN_CATALOG.md`. It lists
@@ -88,6 +102,15 @@ Additional research patterns:
 | `skills/bar_chart.md` | Bar chart | Category comparison with native pptx chart |
 | `skills/line_chart.md` | Line chart | Time-series trend with native pptx chart |
 | `skills/PATTERN_CATALOG.md` | Mandatory catalog | Complete pattern and utility selection surface |
+
+Visual-bar patterns (full-width header bar, prm-deck-kit style — see `AI_INSTRUCTIONS.md`):
+
+| Pattern function | When to use |
+|-----------------|-------------|
+| `three_column_card_slide()` | Team slides, 3-feature breakdown, 3-property comparison |
+| `two_column_contrast_slide()` | Problem vs solution, before vs after, context vs detail |
+| `numbered_steps_slide()` | Vertical pipeline, onboarding flow, governance process |
+| `callout_bar_slide()` | Any content slide ending with a strong closing or governance statement |
 
 If no pattern fits, fall back to `PptxBuilder` directly (see PPTX section below).
 
@@ -216,7 +239,8 @@ deck_path = project.output_path("output.pptx")
 b.save(deck_path, final=True, report_path=project.qa_path(deck_path.name))
 ```
 
-**Available palettes:** `blackrock`, `midnight_executive`, `coral_energy`, `teal_trust`,
+**Available palettes:** `prm` (navy/teal/amber — recommended for financial decks),
+`blackrock`, `midnight_executive`, `coral_energy`, `teal_trust`,
 `charcoal_minimal`, `warm_terracotta`
 
 BlackRock is the default. For project- or client-specific colours, pass a
