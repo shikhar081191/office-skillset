@@ -22,6 +22,7 @@ All workflows use pure Python — no npm, no Node.js, no LibreOffice required.
 
 - **ALWAYS use `deck.py` as the single entry point** when the user provides a `.docx` source. Do not bypass it.
 - **ALWAYS read `skills/PATTERN_CATALOG.md`** before selecting layouts. It is the complete AI decision catalog of supported presentation patterns and supporting utilities.
+- **ALWAYS read `skills/REFERENCE_GALLERY.md`** before selecting layouts or setting font sizes. It contains annotated examples of good slides — match their font hierarchy, space coverage, and colour use. Key benchmarks: 44 pt for deck titles, 26–28 pt for slide titles, 13 pt for card headings, 11–12 pt for body text. Never use font sizes smaller than these.
 - **ALWAYS produce a slide plan** (source evidence → assertion → selected pattern → rationale → inputs/assets → inference flag) and record it via `DecisionLog.record_slide_plan()` before writing refined deck code. This creates `working/slide_plan.md` and records the decision in `decision_log.md`.
 - **ALWAYS apply `register_output()`** at the end of any manual refinement script so the output is recorded in `project.json`.
 - **ALWAYS read `working/user_instructions.txt`** if it exists before building any slides — it overrides default pattern choices.
@@ -64,9 +65,16 @@ instead of a `.docx`, skip the `deck.py` intake step and follow
 
 ## Step 1 — Inventory the pattern choices first
 
-Before writing refined deck code, read `skills/PATTERN_CATALOG.md`. It lists
-all available patterns and the selection cues the agent must evaluate. Then
-read the detailed skill files relevant to plausible choices:
+Before writing refined deck code, read these three files in order:
+
+1. **`skills/REFERENCE_GALLERY.md`** — visual examples of approved good slides.
+   Use the font sizes, colour palettes, and layout density shown there as your
+   target standard. Do not produce slides with smaller fonts or more vacant space
+   than the examples show.
+
+2. **`skills/PATTERN_CATALOG.md`** — all available patterns and selection cues.
+
+Then read the detailed skill files relevant to plausible choices:
 
 | File                       | Pattern             | Use when…                                    |
 |----------------------------|---------------------|----------------------------------------------|
@@ -266,6 +274,9 @@ palette dictionary to `PptxBuilder` or call `register_palette()` from
 - **Fill all optional pattern fields when content is available** — `tag` in cards, `so_what` in chart_context, `footnote` in numbered_steps; blank optional fields leave empty space
 - **A slide with large empty areas means the wrong pattern was chosen** — merge the content, switch to a richer pattern, or drop the slide
 - **No single visual-bar pattern may appear more than once per deck; combined visual-bar patterns should not exceed half the content slides**
+- **Card and contrast patterns require dense body text** — `three_column_card_slide` and `two_column_contrast_slide` need ≥40 words per card/panel. If you cannot write that much real content for each section, use `assertion_evidence_slide` or `callout_bar_slide` instead. Short cards always look vacant.
+- **Step descriptions must be full sentences** — `numbered_steps_slide` step descriptions must be ≥10 words each. Fragment descriptions (3–5 words) leave bare rows. Use `process_slide` instead if descriptions are short.
+- **Font size is set by the pattern, not by you** — do not cram content to fit; split or switch patterns instead. Small fonts on slides are always a sign the wrong pattern was chosen or too much content was forced into one slide.
 
 ---
 
